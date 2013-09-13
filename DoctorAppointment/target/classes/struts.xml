@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="main" namespace="/" extends="struts-default">
+		<action name="" >
+			<result >jsp/doctor_form.jsp</result>
+		</action>
+		<action name="Welcome" class="com.doctorAppointment.action.WelcomeUserAction">
+			<result name="SUCCESS">jsp/doctor_detail.jsp</result>
+		</action>
+		<action name="printPDF" class="com.doctorAppointment.action.PrintPDF">
+			<result name="SUCCESS" type="stream">
+				<param name="contentType">application/pdf</param>
+				<param name="inputName">fileInputStream</param>
+				<param name="contentDisposition">attachment;filename="doctorAppointment.pdf"</param>
+				<param name="bufferSize">1024</param>
+			</result>
+		</action>
+		<!-- <action name="documentDownload" class="com.doctorAppointment.action.PrintDocumentAction">
+			<result name="SUCCESS" type="stream">
+				<param name="contentType">application/docx</param>
+				<param name="inputName">fileInputStream</param>
+				<param name="contentDisposition">attachment;filename="doctorAppointment.docx"</param>
+				<param name="bufferSize">1024</param>
+			</result>
+		</action> -->
+
+
+
+
+	</package>
+	<package name="jasper" namespace="/" extends="jasperreports-default">
+		<result-types>
+			<result-type
+				class="org.apache.struts2.views.jasperreports.JasperReportsResult"
+				name="jasper">
+			</result-type>
+		</result-types>
+		<action name="documentDownload" class="com.doctorAppointment.action.PrintDocumentAction">
+
+			<result name="SUCCESS" type="jasper">
+				<param name="contentType">application/pdf</param>
+				<param name="location">compiled_template.jasper</param>
+				<param name="dataSource">myList</param>
+				<param name="format">PDF</param>
+					<param name="contentDisposition">attachment;filename="doctorAppointment.pdf"</param>
+				<param name="bufferSize">1024</param>
+			</result>
+		</action>
+	</package>
+
+</struts>

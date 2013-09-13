@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport name="jasper_test" language="java">
+  <!-- Our fields from the DoctorDetail class. -->
+  <field name="firstname" class="java.lang.String"/>
+  <field name="lastname" class="java.lang.String"/>
+  <field name="doctor" class="java.lang.String"/>
+  <field name="comments" class="java.lang.String"/>
+  <field name="scheduleAppointment" class="java.lang.String"/>
+  <title>
+    <band height="50">
+      <staticText>
+        <reportElement x="0" y="0" width="180" height="15"/>
+        <textElement/>
+        <text><![CDATA[Appointment]]></text>
+      </staticText>
+    </band>
+  </title>
+  <pageHeader>
+    <band/>
+  </pageHeader>
+  <columnHeader>
+    <band height="20">
+      <staticText>
+        <reportElement x="0" y="0" width="90" height="20"/>
+        <textElement>
+          <font isUnderline="true"/>
+        </textElement>
+        <text><![CDATA[FIRST NAME]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="90" y="0" width="90" height="20"/>
+        <textElement>
+          <font isUnderline="true"/>
+        </textElement>
+        <text><![CDATA[LASTNAME]]></text>
+      </staticText>
+     
+       <staticText>
+        <reportElement x="180" y="0" width="90" height="20"/>
+        <textElement>
+          <font isUnderline="true"/>
+        </textElement>
+        <text><![CDATA[SCHEDULE APPOINTMENT]]></text>
+      </staticText>
+       <staticText>
+        <reportElement x="270" y="0" width="90" height="20"/>
+        <textElement>
+          <font isUnderline="true"/>
+        </textElement>
+        <text><![CDATA[DOCTOR]]></text>
+      </staticText>
+       <staticText>
+        <reportElement x="360" y="0" width="90" height="20"/>
+        <textElement>
+          <font isUnderline="true"/>
+        </textElement>
+        <text><![CDATA[COMMENTS]]></text>
+      </staticText>
+    </band>
+  </columnHeader>
+  <detail>
+    <band height="20">
+      <textField>
+        <reportElement x="0" y="0" width="180" height="15"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{firstname}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement x="90" y="0" width="180" height="15"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{lastname}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement x="180" y="0" width="180" height="15"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{scheduleAppointment}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement x="270" y="0" width="180" height="15"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{doctor}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement x="360" y="0" width="180" height="15"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{comments}]]></textFieldExpression>
+      </textField>
+    </band>
+  </detail>
+  <columnFooter>
+    <band/>
+  </columnFooter>
+  <pageFooter>
+    <band height="15">
+      <staticText>
+        <reportElement x="0" y="0" width="40" height="15"/>
+        <textElement/>
+        <text><![CDATA[Page:]]></text>
+      </staticText>
+      <textField>
+        <reportElement x="40" y="0" width="100" height="15"/>
+        <textElement/>
+        <textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+      </textField>
+    </band>
+  </pageFooter>
+  <summary>
+    <band/>
+  </summary>
+</jasperReport>
+
